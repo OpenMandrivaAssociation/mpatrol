@@ -1,24 +1,24 @@
 %define libversion 1.4
 %define name mpatrol
-%define release 6mdk
+%define release %mkrel 7
 %define version 1.4.8
 
 %define major 1
 %define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} %major -d
+%define develname %mklibname %{name} -d
 
 Summary:  A library for controlling and tracing dynamic memory allocations
-Name: %name
-Version: %version
-Release: %release
+Name: %{name}
+Version: %{version}
+Release: %{release}
 Source: %{name}_%{version}.tar.bz2
 URL: http://www.cbmamiga.demon.co.uk/mpatrol/
 License: LGPL
 Group: System/Libraries
-PreReq: /sbin/install-info /sbin/ldconfig
-BuildRequires: lesstif-devel, binutils-devel
-BuildRoot: %{_tmppath}/%{name}-buildroot
-Conflicts: mercury
+Requires(post): info-install
+Requires(postun): info-install
+BuildRequires: binutils-devel
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The mpatrol library is yet another link library that attempts to
@@ -38,13 +38,14 @@ dynamically allocated memory. It acts as a malloc() debugger for
 debugging dynamic memory allocations, although it can also trace and
 profile calls to malloc() and free() too.
 
-%package -n %{libnamedev}
+%package -n %{develname}
 Summary:  A library for controlling and tracing dynamic memory allocations
 Group: Development/Other
 Requires: %{libname} >= %{version}
-Provides: libmpatrol-devel
+Provides: %{name}-devel
+Obsoletes: %{mklibname mpatrol 1 -d}
 
-%description -n %{libnamedev}
+%description -n %{develname}
 The mpatrol library is yet another link library that attempts to
 diagnose run-time errors that are caused by the wrong use of
 dynamically allocated memory. It acts as a malloc() debugger for
@@ -146,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT%_libdir/Makefile.aix
 %{_libdir}/*.so.*
 %{_mandir}/man3/*
 
-%files -n %{libnamedev}
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/*.a
 %{_libdir}/*.so
