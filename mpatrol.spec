@@ -16,7 +16,7 @@ URL: http://www.cbmamiga.demon.co.uk/mpatrol/
 License: LGPL
 Group: System/Libraries
 Requires(post): info-install
-Requires(postun): info-install
+Requires(preun): info-install
 BuildRequires: binutils-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
