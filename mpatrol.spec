@@ -18,7 +18,6 @@ Group: System/Libraries
 Requires(post): info-install
 Requires(preun): info-install
 BuildRequires: binutils-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The mpatrol library is yet another link library that attempts to
