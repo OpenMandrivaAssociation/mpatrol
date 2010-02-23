@@ -1,24 +1,24 @@
-%define libversion 1.4
-%define name mpatrol
-%define release %mkrel 10
-%define version 1.4.8
+%define	libversion	1.4
+%define name		mpatrol
+%define	release		%mkrel 10
+%define	version		1.4.8
 
-%define major 1
-%define libname %mklibname %{name} %major
-%define develname %mklibname %{name} -d
+%define	major	1
+%define libname	%mklibname %{name} %major
+%define develname	%mklibname %{name} -d
 
-Summary:  A library for controlling and tracing dynamic memory allocations
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source: %{name}_%{version}.tar.bz2
-URL: http://www.cbmamiga.demon.co.uk/mpatrol/
-License: LGPL
-Group: System/Libraries
-Requires(post): info-install
-Requires(preun): info-install
-BuildRequires: binutils-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Summary:	A library for controlling and tracing dynamic memory allocations
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Source:		%{name}_%{version}.tar.bz2
+URL:		http://mpatrol.sourceforge.net/
+License:	LGPL
+Group:		System/Libraries
+Requires(post):	info-install
+Requires(preun):info-install
+BuildRequires:	binutils-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The mpatrol library is yet another link library that attempts to
@@ -27,23 +27,23 @@ dynamically allocated memory. It acts as a malloc() debugger for
 debugging dynamic memory allocations, although it can also trace and
 profile calls to malloc() and free() too.
 
-%package -n %{libname}
-Summary:  A library for controlling and tracing dynamic memory allocations
-Group: System/Libraries
+%package -n	%{libname}
+Summary:	A library for controlling and tracing dynamic memory allocations
+Group:		System/Libraries
 
-%description -n %{libname}
+%description -n	%{libname}
 The mpatrol library is yet another link library that attempts to
 diagnose run-time errors that are caused by the wrong use of
 dynamically allocated memory. It acts as a malloc() debugger for
 debugging dynamic memory allocations, although it can also trace and
 profile calls to malloc() and free() too.
 
-%package -n %{develname}
-Summary:  A library for controlling and tracing dynamic memory allocations
-Group: Development/Other
-Requires: %{libname} >= %{version}
-Provides: %{name}-devel
-Obsoletes: %{mklibname mpatrol 1 -d}
+%package -n	%{develname}
+Summary: 	A library for controlling and tracing dynamic memory allocations
+Group:		Development/Other
+Requires:	%{libname} >= %{version}
+Provides:	%{name}-devel
+Obsoletes:	%{mklibname mpatrol 1 -d}
 
 %description -n %{develname}
 The mpatrol library is yet another link library that attempts to
