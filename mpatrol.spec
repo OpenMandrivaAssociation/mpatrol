@@ -1,6 +1,6 @@
 %define	libversion	1.4
 %define name		mpatrol
-%define	release		%mkrel 10
+%define	release		%mkrel 11
 %define	version		1.4.8
 
 %define	major	1
