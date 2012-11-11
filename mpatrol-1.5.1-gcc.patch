@@ -1,0 +1,24 @@
+diff -urN mpatrol-1.5.1/src/symbol.c mpatrol-1.5.1-patched/src/symbol.c
+--- mpatrol-1.5.1/src/symbol.c	2008-12-17 00:28:55.000000000 +1000
++++ mpatrol-1.5.1-patched/src/symbol.c	2012-06-02 16:26:02.000000000 +1100
+@@ -1990,7 +1990,7 @@
+ {
+     if ((i->dlpi_name == NULL) || (*i->dlpi_name == '\0'))
+         return 0;
+-    return !__mp_addsymbols((symhead *) y, i->dlpi_name, NULL, i->dlpi_addr);
++    return !__mp_addsymbols((symhead *) y, (char *) i->dlpi_name, NULL, i->dlpi_addr);
+ }
+ #endif /* DYNLINK && SYSTEM */
+ 
+diff -urN mpatrol-1.5.1/tools/dmalloc.c mpatrol-1.5.1-patched/tools/dmalloc.c
+--- mpatrol-1.5.1/tools/dmalloc.c	2008-12-17 00:28:55.000000000 +1000
++++ mpatrol-1.5.1-patched/tools/dmalloc.c	2012-06-02 16:38:00.571231272 +1100
+@@ -393,7 +393,7 @@
+ char *
+ bytestring(char *b, size_t s, char *p, size_t l)
+ {
+-    char *t;
++    const char *t;
+     size_t i, n;
+ 
+     for (i = n = 0; (i < s) && (i < l); i++)
