@@ -8,7 +8,7 @@ Summary:	A library for controlling and tracing dynamic memory allocations
 Name:		mpatrol
 Version:	1.5.1
 Release:	1
-URL:		http://sourceforge.net/projects/mpatrol/
+URL:		https://sourceforge.net/projects/mpatrol/
 Source:		%{name}-%{version}.tar.bz2
 Patch0:		mpatrol-1.5.1-gcc.patch
 License:	LGPL
