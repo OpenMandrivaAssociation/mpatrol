@@ -13,6 +13,7 @@ Source:		%{name}-%{version}.tar.bz2
 Patch0:		mpatrol-1.5.1-gcc.patch
 License:	LGPL
 Group:		System/Libraries
+BuildRequires:	make
 BuildRequires:	binutils-devel
 BuildRequires:	texinfo
 
